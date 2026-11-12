@@ -7,7 +7,7 @@ Uso:  python3 import_day.py <export.csv|xlsx> <YYYY-MM-DD>
   snapshot salvato in snapshots/ (al primo avvio contano solo le righe del giorno).
 Stampa un JSON con i valori per il foglio «Дневник» e salva lo snapshot del giorno.
 """
-import csv, datetime as dt, json, re, sys
+import csv, datetime as dt, hashlib, json, re, sys
 from pathlib import Path
 
 SNAP = Path(__file__).with_name("snapshots")
@@ -109,7 +109,8 @@ def main(path, day):
 
     cur = {}
     for r in rows:
-        key = f"{r.get(c_name)}|{r.get(c_phone)}"
+        # chiave anonima: nello snapshot non finiscono nomi né telefoni
+        key = hashlib.sha1(f"{r.get(c_name)}|{r.get(c_phone)}".encode()).hexdigest()[:16]
         cur[key] = {"status": norm_status(r.get(c_status)),
                     "date": parse_date(r.get(c_date), day.year),
                     "pay": money(r.get(c_pay)) if c_pay else 0.0}
