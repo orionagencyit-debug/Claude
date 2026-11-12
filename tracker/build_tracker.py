@@ -7,7 +7,7 @@ from openpyxl.formatting.rule import CellIsRule, FormulaRule, ColorScaleRule
 wb = Workbook()
 S = "'Настройки'"
 D = "'Дневник'"
-N_DAYS = 24
+N_DAYS = 27  # 3 giorni di rodaggio (gio-ven-sab) + 24 giorni lavorativi
 LAST = 1 + N_DAYS  # ultima riga dati in Дневник
 
 DARK = PatternFill("solid", fgColor="12355B")
@@ -42,7 +42,7 @@ inputs = [
     (7, "% явки на демо", 0.65, "0%"),
     (8, "% оплат от проведённых демо", 0.25, "0%"),
     (9, "% живых номеров (мобильные)", 0.91, "0%"),
-    (10, "Первый день обзвона", dt.date(2026, 11, 16), "dd.mm.yyyy"),
+    (10, "Первый день обзвона", dt.date(2026, 11, 12), "dd.mm.yyyy"),
     (11, "Праздник (выходной)", dt.date(2026, 12, 8), "dd.mm.yyyy"),
 ]
 st["A3"], st["B3"], st["C3"] = "Параметр", "Значение", "Комментарий"
@@ -53,7 +53,7 @@ notes = {
     7: "1 из 2 первых демо сорвалось и перенесено",
     8: "Пока не измерено — самая неопределённая цифра",
     9: "По твоей таблице: 49 из 54 мобильных живые",
-    10: "Понедельник. Даты в «Дневнике» считаются от этой даты",
+    10: "Чт 12.11. Первые 3 дня подряд (чт, пт, сб), дальше только пн–пт",
     11: "8 декабря — Immacolata, не звоним",
 }
 for r, label, val, fmt in inputs:
@@ -69,8 +69,8 @@ calc = [
     (14, "Нужно продаж", "=ROUNDUP(B4/B5,0)", "0", "Цель ÷ средний чек"),
     (15, "Продаж на 100 звонков", "=100*B6*B7*B8", "0.00", "демо × явка × оплата"),
     (16, "Нужно звонков ВСЕГО", "=ROUNDUP(B14/(B6*B7*B8),0)", "#,##0", "Главная цифра: сколько наборов номера за период"),
-    (17, "Дней обзвона (пн–пт)", f"=COUNT({D}!A2:A{LAST})", "0", "Рабочие дни в «Дневнике», без праздника"),
-    (18, "ПЛАН ЗВОНКОВ В ДЕНЬ", "=ROUNDUP(B16/B17,0)", "0", "При ~100 звонках ≈ 3–4 часа"),
+    (17, "Дней обзвона", f"=COUNT({D}!A2:A{LAST})", "0", "Строки в «Дневнике»: разгон + пн–пт, без праздника"),
+    (18, "ПЛАН ЗВОНКОВ В ДЕНЬ (после разгона)", "=ROUNDUP((B16-SUM(F4:F7))/(B17-COUNT(F4:F7)),0)", "0", "Остаток плана после разгона ÷ оставшиеся дни"),
     (19, "Демо назначить (всего)", "=ROUNDUP(B16*B6,0)", "0", ""),
     (20, "Демо провести (всего)", "=ROUNDUP(B19*B7,0)", "0", ""),
     (21, "Мобильных номеров в базе (≈)", "=ROUNDUP(B16*0.95,-2)", "#,##0", "~5% звонков — повторные наборы"),
@@ -106,6 +106,16 @@ for i, (name, a, b, c_, d) in enumerate(scen):
         cell.border = BOX
         if fm:
             cell.number_format = fm
+st["E3"], st["F3"] = "Разгон: день", "План звонков"
+hdr(st, 3, [5, 6])
+for i, v in enumerate([50, 65, 70, 85]):
+    r = 4 + i
+    d = st.cell(row=r, column=5, value=f"={D}!A{2+i}")
+    d.number_format, d.border = "dd.mm (ddd)", BOX
+    c = st.cell(row=r, column=6, value=v)
+    c.fill, c.border, c.font = INPUT, BOX, B
+st["E8"] = "Дальше — план из B18 каждый день"
+st["E8"].font = Font(italic=True, color="555555")
 st.column_dimensions["A"].width = 32
 st.column_dimensions["B"].width = 16
 st.column_dimensions["C"].width = 52
@@ -122,9 +132,15 @@ for i, h in enumerate(cols, 1):
 hdr(lg, 1, range(1, len(cols) + 1))
 lg.row_dimensions[1].height = 42
 for r in range(2, LAST + 1):
-    lg.cell(row=r, column=1, value=f"={S}!B10" if r == 2 else f"=WORKDAY(A{r-1},1,{S}!$B$11)").number_format = "dd.mm"
+    if r == 2:
+        date_f = f"={S}!B10"
+    elif r in (3, 4):
+        date_f = f"=A{r-1}+1"  # rodaggio: giorni consecutivi (gio, ven, sab)
+    else:
+        date_f = f"=WORKDAY(A{r-1},1,{S}!$B$11)"
+    lg.cell(row=r, column=1, value=date_f).number_format = "dd.mm"
     lg.cell(row=r, column=2, value=f'=CHOOSE(WEEKDAY(A{r},2),"Пн","Вт","Ср","Чт","Пт","Сб","Вс")')
-    lg.cell(row=r, column=3, value=f"={S}!$B$18")
+    lg.cell(row=r, column=3, value=f"={S}!F{2+r}" if r <= 5 else f"={S}!$B$18")
     for c in range(4, 11):
         lg.cell(row=r, column=c).fill = INPUT
     lg.cell(row=r, column=10).number_format = '#,##0 "€"'
@@ -245,11 +261,17 @@ wk = ["Неделя", "План звонков", "Звонков", "% плана
 for i, h in enumerate(wk, 1):
     db.cell(row=31, column=i, value=h)
 hdr(db, 31, range(1, 8))
-for n in range(1, 6):
-    r = 31 + n
-    start = f"({D}!$A$2+{7*(n-1)})"
-    crit = f'{D}!$A$2:$A${LAST},">="&{start},{D}!$A$2:$A${LAST},"<"&({start}+7)'
-    db.cell(row=r, column=1, value=f'="Неделя {n} ("&TEXT({start},"dd.mm")&")"')
+for n in range(0, 6):
+    r = 32 + n
+    if n == 0:
+        start, end = f"{D}!$A$2", f"{D}!$A$5"
+        label = f'="Разгон ("&TEXT({start},"dd.mm")&"–"&TEXT({D}!$A$4,"dd.mm")&")"'
+    else:
+        start = f"({D}!$A$5+{7*(n-1)})"
+        end = f"({start}+7)"
+        label = f'="Неделя {n} ("&TEXT({start},"dd.mm")&")"'
+    crit = f'{D}!$A$2:$A${LAST},">="&{start},{D}!$A$2:$A${LAST},"<"&{end}'
+    db.cell(row=r, column=1, value=label)
     db.cell(row=r, column=2, value=f"=SUMIFS({D}!$C$2:$C${LAST},{crit})")
     db.cell(row=r, column=3, value=f"=SUMIFS({D}!$D$2:$D${LAST},{crit})")
     db.cell(row=r, column=4, value=f"=IFERROR(C{r}/B{r},0)").number_format = "0%"
@@ -260,7 +282,7 @@ for n in range(1, 6):
         db.cell(row=r, column=c).border = BOX
         if c > 1:
             db.cell(row=r, column=c).alignment = Alignment(horizontal="center")
-db.conditional_formatting.add("D32:D36", ColorScaleRule(start_type="num", start_value=0.5, start_color="F8696B",
+db.conditional_formatting.add("D32:D37", ColorScaleRule(start_type="num", start_value=0.5, start_color="F8696B",
                                                         mid_type="num", mid_value=0.85, mid_color="FFEB84",
                                                         end_type="num", end_value=1, end_color="63BE7B"))
 for col, w in zip("ABCDEFG", [44, 16, 14, 16, 16, 10, 13]):
@@ -270,7 +292,8 @@ for col, w in zip("ABCDEFG", [44, 16, 14, 16, 16, 10, 13]):
 ins = wb.create_sheet("Инструкция")
 lines = [
     ("КАК ПОЛЬЗОВАТЬСЯ ТРЕКЕРОМ", True),
-    ("1. Каждый вечер (5 минут) открой лист «Дневник» и заполни жёлтые ячейки за сегодня из своей таблицы лидов.", False),
+    ("1. Каждый вечер экспортируй таблицу лидов (Файл → Скачать → CSV или XLSX) и загрузи в чат Claude — он посчитает день и заполнит «Дневник». Вручную — жёлтые ячейки.", False),
+    ("   Для этого в таблице лидов: у каждого звонка ставь «Дату звонка» и статус из списка: ineistente · non risponde · Da chiamare · No · c'è sito · gia in lavoro · Demo (назначено) · Demo fatta · Attesa acconto · Pagato (+ сумма в «Оплата €»).", False),
     ("2. «Звонков» — все наборы номера, включая мёртвые и неотвеченные.", False),
     ("3. «Разговоров с владельцем» — реальный разговор с тем, кто принимает решение (да, нет, есть сайт, перезвонить).", False),
     ("4. «Продаж» — только когда ПОЛУЧЕНА предоплата. «Да» без денег не считается.", False),
