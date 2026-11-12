@@ -19,6 +19,7 @@
 ## Содержание
 
 **ЧАСТЬ 1 — ТЕОРЕТИЧЕСКАЯ БАЗА**
+
 1. Как работает сайт: браузер, сервер, домен, хостинг
 2. HTML, CSS, JavaScript
 3. Что такое фреймворк (React, Next.js) и почему он нужен не всегда
@@ -36,6 +37,7 @@
 15. Глоссарий: 40 терминов
 
 **ЧАСТЬ 2 — БИЗНЕС-МОДЕЛЬ**
+
 1. Модели дохода
 2. Расчёт устойчивости
 3. Как продавать
@@ -44,6 +46,7 @@
 6. План роста на 12 месяцев
 
 **ПРИЛОЖЕНИЯ**
+
 - План обучения на 4 недели (1 час в день)
 - 10 практических упражнений
 
@@ -81,6 +84,7 @@
 **Пример из твоей работы.** Ты сделал сайт для парикмахерской в Вероне. Код лежит на GitHub, Vercel его «публикует» (то есть хранит на своих серверах), а домен `barbieriverona.it` клиент купил на Aruba. В DNS Aruba ты указываешь: «этот домен ведёт на Vercel». Клиент открывает домен — и видит твой сайт.
 
 ✅ **Что нужно знать для работы**
+
 1. Домен, хостинг и сайт — три разные вещи, которые можно покупать у разных компаний.
 2. Браузер ничего «не хранит» навсегда — он каждый раз запрашивает файлы у сервера (с кэшем, но об этом позже).
 3. Если сайт «не открывается», проблема может быть в одном из трёх мест: домен/DNS, сервер/хостинг, код сайта.
@@ -136,6 +140,7 @@ document.getElementById("chiama").onclick = function () {
 Когда пишешь промпт в Claude Code, ты будешь точнее, если знаешь, к чему относится изменение: «Измени стиль кнопки (CSS)» вместо «сделай красиво».
 
 ✅ **Что нужно знать для работы**
+
 1. Любой сайт в браузере в итоге — это HTML + CSS + JS, даже если сделан на React.
 2. Текст и картинки — в HTML; внешний вид — в CSS; действия — в JS.
 3. Можно сделать хороший сайт для малого бизнеса почти без JavaScript.
@@ -168,6 +173,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Для пиццерии с меню и кнопкой «позвонить» достаточно HTML/CSS или Astro. Если Claude Code по умолчанию создаёт проект на Next.js — это не ошибка, но больше «движущихся частей», которые могут сломаться при обновлениях. В промпте можно прямо написать: «Сделай статический сайт на чистом HTML и CSS, без фреймворка».
 
 ✅ **Что нужно знать для работы**
+
 1. Фреймворк — инструмент, а не признак «профессионального» сайта. Клиенту важен результат.
 2. Чем проще стек (🇮🇹 *stack tecnologico*), тем дешевле и спокойнее поддержка.
 3. Next.js оправдан, когда есть динамика: формы с логикой, личные кабинеты, много страниц из базы данных.
@@ -211,6 +217,7 @@ document.getElementById("chiama").onclick = function () {
 **Плохое сообщение коммита:** `fix`, `update`, `asdf`.
 
 ✅ **Что нужно знать для работы**
+
 1. Всё, что попало в `main`, обычно сразу публикуется на живом сайте.
 2. Коммит — твоя «страховка»: если что-то сломалось, можно вернуться к прошлой версии.
 3. Ветки + preview позволяют показать клиенту изменения до публикации.
@@ -240,10 +247,11 @@ document.getElementById("chiama").onclick = function () {
 
 **Preview — твой главный инструмент продаж и согласования.** Ты можешь отправить клиенту ссылку и сказать:
 
-🇮🇹 «Ecco l'anteprima delle modifiche. Se le approva, le pubblico oggi stesso.»
+🇮🇹 «Ecco l'anteprima delle modifiche. Se le approva, le pubblico oggi stesso.»\
 → 🇷🇺 «Вот предварительный просмотр изменений. Если вы одобрите, я опубликую их сегодня же.»
 
 **Важные функции Vercel:**
+
 - **Rollback** (🇮🇹 *ripristino della versione precedente*) — откат к прошлому деплою одной кнопкой.
 - **Environment variables** (🇮🇹 *variabili d'ambiente*) — секретные настройки (ключи API), которые не хранятся в коде.
 - **Logs** (🇮🇹 *registri*) — журнал ошибок сборки.
@@ -253,6 +261,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Сборка «упала» (🇮🇹 *la build è fallita*). Ты открываешь Vercel → Deployments → видишь красный значок → открываешь логи → копируешь текст ошибки в Claude Code: «Вот ошибка сборки на Vercel, объясни простыми словами, что случилось, и исправь».
 
 ✅ **Что нужно знать для работы**
+
 1. Push в `main` = изменения на живом сайте через 30–90 секунд.
 2. Preview-ссылки — бесплатный способ показывать работу клиенту без риска.
 3. Если что-то сломалось — сначала rollback (вернуть работающую версию), потом спокойно чинить.
@@ -287,6 +296,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** У клиента домен и почта на Aruba. Ты меняешь **только** запись A для `@` и CNAME для `www`. Записи MX (почта) не трогаешь. Через час сайт открывается с Vercel, а почта клиента продолжает работать.
 
 ✅ **Что нужно знать для работы**
+
 1. Перед изменением DNS сделай скриншот всех текущих записей — это твой бэкап.
 2. MX-записи отвечают за почту: удалишь их — у клиента пропадёт почта.
 3. Задержка после изменения DNS — нормально; это не ошибка.
@@ -310,16 +320,18 @@ document.getElementById("chiama").onclick = function () {
 
 **Почему домен может остаться там, где он есть?**
 Домен — это только «вывеска с адресом». Чтобы сайт работал на Vercel, домен не нужно переносить (🇮🇹 *trasferimento del dominio*) — достаточно поменять DNS-записи у текущего регистратора. Это:
+
 - быстрее (минуты, а не дни);
 - безопаснее (почта и другие сервисы клиента не страдают);
 - проще для клиента (он ничего не теряет и не платит).
 
 **Как объяснить клиенту:**
 
-🇮🇹 «Il dominio resta suo e resta dov'è. Io cambio solo l'indirizzo a cui punta, come quando si aggiorna l'indirizzo sul navigatore.»
+🇮🇹 «Il dominio resta suo e resta dov'è. Io cambio solo l'indirizzo a cui punta, come quando si aggiorna l'indirizzo sul navigatore.»\
 → 🇷🇺 «Домен остаётся вашим и там, где он есть. Я меняю только адрес, на который он указывает, — как обновить адрес в навигаторе.»
 
 ✅ **Что нужно знать для работы**
+
 1. Домен всегда регистрируется на имя клиента (или его фирмы).
 2. Для подключения к Vercel достаточно изменить DNS, перенос домена не обязателен.
 3. Почта клиента обычно привязана к хостингу/регистратору (Aruba) — уточняй это до работ.
@@ -336,6 +348,7 @@ document.getElementById("chiama").onclick = function () {
 **Простое объяснение.** HTTPS — это защищённое соединение между браузером и сервером. Данные шифруются (🇮🇹 *cifrati / crittografati*), и никто посередине (например, в публичном Wi-Fi) не может их прочитать или подменить. Замочек 🔒 в адресной строке = HTTPS работает.
 
 **Зачем нужно:**
+
 1. **Доверие.** Без HTTPS Chrome пишет «Non sicuro» (Небезопасно) — клиенты уходят.
 2. **SEO.** Google понижает сайты без HTTPS.
 3. **Закон.** GDPR (🇮🇹 *GDPR / Regolamento europeo sulla protezione dei dati*) требует защищать персональные данные — например, из контактной формы.
@@ -345,6 +358,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Ты подключил домен, но Vercel пишет «Invalid configuration» и замочка нет. Это почти всегда значит, что DNS ещё не распространился или записи указаны неверно. Подожди/проверь DNS — сертификат появится сам.
 
 ✅ **Что нужно знать для работы**
+
 1. На Vercel HTTPS бесплатный и автоматический — никогда не продавай клиенту «SSL-сертификат за 50 €».
 2. Сертификат выпускается только после правильной настройки DNS.
 3. Проверяй, что `http://` автоматически перенаправляет на `https://` (на Vercel — по умолчанию).
@@ -372,6 +386,7 @@ document.getElementById("chiama").onclick = function () {
 | **Search Console** | *Google Search Console* | Бесплатный инструмент Google: как сайт виден в поиске, ошибки, запросы | Подключаешь для каждого клиента |
 
 **Локальное SEO (🇮🇹 *SEO locale*)** — самое важное для малого бизнеса в Вероне:
+
 - город и район в title и тексте («a Verona», «Borgo Trento», «San Zeno»);
 - одинаковые название, адрес, телефон (NAP — Name, Address, Phone) на сайте и в Google Business Profile;
 - профиль **Google Business Profile** (🇮🇹 *Scheda dell'attività su Google*) — часто приносит больше звонков, чем сам сайт;
@@ -380,6 +395,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Промпт для Claude Code: «Для каждой страницы добавь уникальный title до 60 символов и meta description до 155 символов на итальянском, с упоминанием Вероны. Проверь, что на каждой странице ровно один H1. Добавь alt ко всем изображениям. Создай sitemap.xml и robots.txt. Добавь schema.org LocalBusiness с адресом и часами работы».
 
 ✅ **Что нужно знать для работы**
+
 1. У каждой страницы — свой title и description, без дублей.
 2. После запуска сайта — подключить Search Console и отправить sitemap.
 3. Для местного бизнеса Google Business Profile так же важен, как и сайт.
@@ -407,6 +423,7 @@ document.getElementById("chiama").onclick = function () {
 | Сторонние сервисы | *servizi di terze parti* | Встроенная карта Google, Instagram-лента | Загружать по клику (🇮🇹 *al clic*) или как картинку со ссылкой |
 
 **Ключевые понятия:**
+
 - **Lazy loading** (🇮🇹 *caricamento pigro / differito*) — картинки внизу страницы грузятся, только когда до них долистали.
 - **Кэш** (🇮🇹 *cache*) — браузер запоминает файлы, чтобы не скачивать их снова.
 - **CDN** — копии сайта на серверах по всему миру; Vercel делает это сам.
@@ -416,6 +433,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Клиент прислал 40 фото с телефона. До того как добавить их на сайт, попроси Claude Code: «Конвертируй все изображения в папке `/foto` в WebP, максимальная ширина 1600 px, качество 80, и добавь lazy loading».
 
 ✅ **Что нужно знать для работы**
+
 1. Картинки — причина №1 медленных сайтов малого бизнеса.
 2. Проверяй PageSpeed Insights до сдачи проекта и показывай результат клиенту — это аргумент продаж.
 3. Каждый виджет (чат, Instagram, карта) — это цена в скорости.
@@ -446,26 +464,30 @@ document.getElementById("chiama").onclick = function () {
 **Стандарты:** международный стандарт **WCAG 2.1/2.2 уровень AA** (🇮🇹 *Linee guida per l'accessibilità dei contenuti Web*) и европейский **EN 301 549**.
 
 **Законодательство в Италии (кратко, информационно):**
+
 - **Legge Stanca (L. 4/2004)** — закон о доступности; изначально для государственных органов. С 2020 года (DL 76/2020) распространён на крупные частные компании (оборот более 500 млн €).
 - **European Accessibility Act** — в Италии введён **D.Lgs. 82/2022**, применяется с **28 июня 2025** к ряду продуктов и услуг, в том числе к **электронной коммерции**, банковским услугам, транспортным услугам. **Микропредприятия** (менее 10 сотрудников и оборот/баланс не более 2 млн €), оказывающие услуги, как правило, **освобождены** от требований к услугам.
 - Надзор — **AgID** (🇮🇹 *Agenzia per l'Italia Digitale*).
 
 **Что это значит для тебя:** большинство твоих клиентов (пиццерии, парикмахерские, мастера) юридически, скорее всего, не обязаны соответствовать требованиям. Но:
+
 1. доступный сайт лучше для всех и лучше для SEO;
 2. если клиент продаёт онлайн и он не микропредприятие — требования могут касаться его напрямую;
 3. это хороший аргумент качества.
 
-🇮🇹 «Il sito è progettato seguendo le linee guida di accessibilità WCAG: si legge bene anche da chi ha problemi di vista e funziona con lo screen reader.»
+🇮🇹 «Il sito è progettato seguendo le linee guida di accessibilità WCAG: si legge bene anche da chi ha problemi di vista e funziona con lo screen reader.»\
 → 🇷🇺 «Сайт сделан по рекомендациям доступности WCAG: его удобно читать людям с проблемами зрения, и он работает с программами экранного чтения.»
 
 > ⚠️ Не обещай клиенту «полное юридическое соответствие» — это требует аудита. Говори «сделано с учётом рекомендаций WCAG».
 
 **Также обязательно для любого сайта в Италии (GDPR и Garante Privacy):**
+
 - **Privacy policy** (🇮🇹 *informativa sulla privacy*) — особенно если есть форма контакта.
 - **Cookie policy** и **cookie-баннер** (🇮🇹 *banner dei cookie*), если используются нетехнические cookies (аналитика с идентификацией, рекламные пиксели, встроенные YouTube/Maps). Правила — «Linee guida cookie» Garante Privacy (2021): кнопка «Rifiuta» (отказаться) должна быть такой же заметной, как «Accetta».
 - В подвале (🇮🇹 *footer*): название фирмы и **Partita IVA** (налоговый номер) клиента — обязательное требование для сайтов компаний в Италии.
 
 ✅ **Что нужно знать для работы**
+
 1. Контраст, alt, заголовки, клавиатура, подписи полей — пять базовых проверок для каждого сайта.
 2. Partita IVA клиента в подвале и privacy policy — обязательный минимум.
 3. Если ставишь Google Analytics/Meta Pixel — нужен корректный cookie-баннер.
@@ -480,12 +502,14 @@ document.getElementById("chiama").onclick = function () {
 🇮🇹 *Responsive e mobile-first*
 
 **Простое объяснение.**
+
 - **Responsive design** (🇮🇹 *design responsivo / adattivo*) — сайт автоматически перестраивается под размер экрана: телефон, планшет, компьютер.
 - **Mobile-first** (🇮🇹 *prima il mobile*) — проектировать сначала для телефона, потом расширять для компьютера. Причина: большинство посетителей сайтов малого бизнеса приходят с телефона, и Google индексирует в первую очередь мобильную версию (🇮🇹 *indicizzazione mobile-first*).
 
 **Как это работает:** в CSS есть **медиа-запросы** (🇮🇹 *media query*): «если экран шире 768 px — покажи 3 колонки, иначе — 1 колонку». Точки перехода называются **breakpoints** (🇮🇹 *punti di interruzione*).
 
 **Чек-лист mobile-first для малого бизнеса:**
+
 - Кнопка «Позвонить» (🇮🇹 *Chiama*) и «WhatsApp» видны сразу, без прокрутки.
 - Кнопки не меньше ~44×44 px — чтобы попасть пальцем.
 - Адрес — ссылка на Google Карты («Indicazioni stradali»).
@@ -495,6 +519,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Перед сдачей открой сайт в Chrome → F12 → значок телефона (Device Toolbar) → проверь iPhone SE (маленький экран) и iPad. И обязательно — на своём реальном телефоне.
 
 ✅ **Что нужно знать для работы**
+
 1. Сначала телефон, потом компьютер.
 2. Главное действие (позвонить, записаться, заказать) — в один тап.
 3. Проверяй на реальном устройстве, а не только в эмуляторе.
@@ -523,6 +548,7 @@ document.getElementById("chiama").onclick = function () {
 | Страницы | *pagine più visitate* | Что интересует клиентов |
 
 **Инструменты:**
+
 - **Vercel Web Analytics** — простая аналитика без cookies, встроена в Vercel. Хороший вариант с точки зрения приватности.
 - **Plausible / Umami** — простые, приватные альтернативы.
 - **Google Analytics 4 (GA4)** — мощная, бесплатная, но требует cookie-баннера и согласия.
@@ -531,10 +557,11 @@ document.getElementById("chiama").onclick = function () {
 
 **Отчёт для клиента (раз в месяц)** — часть услуги ретейнера:
 
-🇮🇹 «Questo mese il sito ha avuto 620 visite, 38 persone hanno cliccato per chiamarla e 12 hanno chiesto le indicazioni stradali.»
+🇮🇹 «Questo mese il sito ha avuto 620 visite, 38 persone hanno cliccato per chiamarla e 12 hanno chiesto le indicazioni stradali.»\
 → 🇷🇺 «В этом месяце на сайте было 620 посещений, 38 человек нажали, чтобы вам позвонить, и 12 запросили маршрут.»
 
 ✅ **Что нужно знать для работы**
+
 1. Считай действия (звонки, WhatsApp, формы), а не только посещения.
 2. Аналитика с cookies = нужен баннер согласия; аналитика без cookies — проще.
 3. Ежемесячный короткий отчёт делает ценность ретейнера видимой.
@@ -561,6 +588,7 @@ document.getElementById("chiama").onclick = function () {
 | Принцип минимальных прав | *privilegio minimo* | Давай/бери только те доступы, которые нужны |
 
 **Что НИКОГДА нельзя публиковать (особенно в публичном репозитории GitHub):**
+
 - ключи API (🇮🇹 *chiavi API*) — OpenAI, Anthropic, Stripe, Telegram bot token, Resend и т. п.;
 - пароли, токены доступа (🇮🇹 *token di accesso*);
 - файл `.env` (там хранятся секреты) — он должен быть в `.gitignore`;
@@ -573,6 +601,7 @@ document.getElementById("chiama").onclick = function () {
 **Пример из твоей работы.** Ты делаешь форму, которая отправляет заявки в Telegram. Промпт: «Токен бота храни в переменной окружения TELEGRAM_BOT_TOKEN, не пиши его в коде. Проверь, что `.env` есть в `.gitignore`».
 
 ✅ **Что нужно знать для работы**
+
 1. 2FA на всех ключевых сервисах — обязательно.
 2. Секреты — только в переменных окружения, никогда в коде.
 3. Утёкший ключ — сразу отозвать, а не просто удалить из кода.
@@ -751,6 +780,7 @@ document.getElementById("chiama").onclick = function () {
 \* При 50 клиентах расходы растут (больше инструментов, мониторинг, возможно, помощник).
 
 **Выводы:**
+
 - Ретейнер сам по себе даёт **стабильную базу**, а проекты — **рост и рывки**.
 - 50 клиентов × 1 ч = 50 ч/мес — это всего ~2,5 ч в день. Остальное время — на новые проекты и продажи.
 - Не забывай: на 60 000 €/год ты близко к лимиту forfettario (85 000 €) вместе с проектами. Планируй с коммерчиалистом.
@@ -781,11 +811,12 @@ document.getElementById("chiama").onclick = function () {
 | 4 ч | 160 € | 100 € | 🔴 Убыток: −60 € в месяц |
 
 **Правило:** записывай время на каждого клиента (Toggl, Clockify или простая таблица). Если 3 месяца подряд клиент занимает больше 2 ч/мес — пора:
+
 1. поговорить и предложить более высокий тариф, или
 2. выставлять доп. часы отдельно, или
 3. автоматизировать то, что он просит постоянно (например, дать ему CMS для смены меню).
 
-🇮🇹 «Negli ultimi tre mesi le richieste sono raddoppiate rispetto a quanto previsto dal pacchetto. Le propongo di passare al piano Standard, così ha più ore incluse e un prezzo orario più basso.»
+🇮🇹 «Negli ultimi tre mesi le richieste sono raddoppiate rispetto a quanto previsto dal pacchetto. Le propongo di passare al piano Standard, così ha più ore incluse e un prezzo orario più basso.»\
 → 🇷🇺 «За последние три месяца запросов стало вдвое больше, чем предусмотрено пакетом. Предлагаю перейти на тариф “Стандарт” — так у вас будет больше включённых часов и ниже цена за час.»
 
 ---
@@ -797,6 +828,7 @@ document.getElementById("chiama").onclick = function () {
 🇮🇹 *Trovare il cliente*
 
 **Источник 1 — Google Карты (самый эффективный для старта):**
+
 1. Открой Google Maps, ищи: «parrucchiere Verona», «pizzeria Borgo Venezia», «idraulico San Giovanni Lupatoto».
 2. Отмечай компании, у которых:
    - нет сайта (в карточке нет кнопки «Sito web»);
@@ -809,7 +841,7 @@ document.getElementById("chiama").onclick = function () {
 **Источник 2 — рекомендации (🇮🇹 *passaparola / referral*):**
 После каждого успешного проекта проси:
 
-🇮🇹 «Se conosce un altro titolare che ha bisogno di un sito o di sistemare quello che ha, mi farebbe un grande favore a passargli il mio numero. Per ogni cliente che arriva tramite lei, le regalo un mese di assistenza.»
+🇮🇹 «Se conosce un altro titolare che ha bisogno di un sito o di sistemare quello che ha, mi farebbe un grande favore a passargli il mio numero. Per ogni cliente che arriva tramite lei, le regalo un mese di assistenza.»\
 → 🇷🇺 «Если вы знаете другого владельца бизнеса, которому нужен сайт или нужно привести в порядок существующий, вы очень поможете мне, если передадите ему мой номер. За каждого клиента, пришедшего через вас, дарю вам месяц обслуживания бесплатно.»
 
 **Источник 3 — локальные сети:** Confcommercio/Confartigianato Verona, Camera di Commercio di Verona (мероприятия), бизнес-завтраки (BNI), коворкинги, ассоциации торговцев района.
@@ -823,15 +855,16 @@ document.getElementById("chiama").onclick = function () {
 
 **Личный визит (лучший формат для малого бизнеса в Италии):** зайди в спокойное время (у ресторана — 15:00–17:00, у парикмахерской — утро вторника), будь кратким.
 
-🇮🇹 «Buongiorno, mi chiamo Egor, faccio siti web per le attività qui a Verona. Ho visto la vostra scheda su Google: avete ottime recensioni, ma quando si cerca dal telefono il sito non si legge bene. Le posso lasciare il mio biglietto? Se le interessa, le preparo un'anteprima gratuita della homepage, senza impegno.»
+🇮🇹 «Buongiorno, mi chiamo Egor, faccio siti web per le attività qui a Verona. Ho visto la vostra scheda su Google: avete ottime recensioni, ma quando si cerca dal telefono il sito non si legge bene. Le posso lasciare il mio biglietto? Se le interessa, le preparo un'anteprima gratuita della homepage, senza impegno.»\
 → 🇷🇺 «Добрый день, меня зовут Егор, я делаю сайты для местного бизнеса здесь, в Вероне. Я видел вашу карточку в Google: у вас отличные отзывы, но с телефона сайт плохо читается. Можно оставить вам визитку? Если вам интересно, я подготовлю бесплатный предварительный вариант главной страницы, без обязательств.»
 
 **Сообщение в WhatsApp/email после визита:**
 
-🇮🇹 «Buongiorno [Nome], sono Egor, ci siamo visti oggi in negozio. Come promesso, ecco un'anteprima di come potrebbe essere la vostra homepage: [link]. È solo una bozza, la possiamo adattare insieme. Quando avrebbe 15 minuti per parlarne?»
+🇮🇹 «Buongiorno [Nome], sono Egor, ci siamo visti oggi in negozio. Come promesso, ecco un'anteprima di come potrebbe essere la vostra homepage: [link]. È solo una bozza, la possiamo adattare insieme. Quando avrebbe 15 minuti per parlarne?»\
 → 🇷🇺 «Добрый день, [Имя], это Егор, мы виделись сегодня в магазине. Как и обещал, вот предварительный вариант вашей главной страницы: [ссылка]. Это только черновик, можем вместе его доработать. Когда у вас будет 15 минут, чтобы это обсудить?»
 
 **Демо — твоё главное оружие.** С Claude Code ты можешь за 1–2 часа сделать главную страницу с реальными фото (из Google-карточки, с разрешения) и текстами клиента. Правила:
+
 - только главная страница, не весь сайт;
 - на preview-ссылке Vercel (не на домене клиента);
 - ограничь время на демо (макс. 2 ч) и количество демо в неделю;
@@ -855,37 +888,37 @@ document.getElementById("chiama").onclick = function () {
 **1. «У меня и так достаточно работы»**
 🇮🇹 «Ho già abbastanza lavoro.»
 
-🇮🇹 «Capisco, ed è un ottimo segnale. Il sito non serve solo a portare più clienti: può farle risparmiare tempo, per esempio rispondendo da solo alle domande su orari e prezzi, o portando clienti più in linea con quello che fa. Se oggi non le serve, nessun problema: le lascio il mio contatto per quando vorrà.»
+🇮🇹 «Capisco, ed è un ottimo segnale. Il sito non serve solo a portare più clienti: può farle risparmiare tempo, per esempio rispondendo da solo alle domande su orari e prezzi, o portando clienti più in linea con quello che fa. Se oggi non le serve, nessun problema: le lascio il mio contatto per quando vorrà.»\
 → 🇷🇺 «Понимаю, и это отличный знак. Сайт нужен не только чтобы приводить больше клиентов: он может экономить ваше время — например, сам отвечать на вопросы о часах работы и ценах — или приводить клиентов, которые лучше подходят под то, что вы делаете. Если сегодня вам это не нужно — никаких проблем: оставлю контакт на будущее.»
 
 **2. «Мне это не нужно, у меня есть Facebook/Instagram»**
 🇮🇹 «Non serve, ho già la pagina Facebook.»
 
-🇮🇹 «Ha ragione, i social sono utili. Però la pagina non è sua: le regole e la visibilità le decide la piattaforma, e chi cerca “parrucchiere Verona” su Google spesso non arriva su Facebook. Il sito è il suo spazio, e lavora insieme ai social, non al posto loro.»
+🇮🇹 «Ha ragione, i social sono utili. Però la pagina non è sua: le regole e la visibilità le decide la piattaforma, e chi cerca “parrucchiere Verona” su Google spesso non arriva su Facebook. Il sito è il suo spazio, e lavora insieme ai social, non al posto loro.»\
 → 🇷🇺 «Вы правы, соцсети полезны. Но страница вам не принадлежит: правила и охват решает платформа, а тот, кто ищет «парикмахерская Верона» в Google, часто не попадает на Facebook. Сайт — ваше собственное пространство, и он работает вместе с соцсетями, а не вместо них.»
 
 **3. «Это дорого»**
 🇮🇹 «Costa troppo.»
 
-🇮🇹 «È una spesa da valutare, ha ragione. Facciamo un conto semplice: quanto vale per lei un nuovo cliente? Se il sito ne porta due o tre in più al mese, si ripaga in poche settimane. E se preferisce, possiamo partire dal pacchetto base e aggiungere il resto più avanti.»
+🇮🇹 «È una spesa da valutare, ha ragione. Facciamo un conto semplice: quanto vale per lei un nuovo cliente? Se il sito ne porta due o tre in più al mese, si ripaga in poche settimane. E se preferisce, possiamo partire dal pacchetto base e aggiungere il resto più avanti.»\
 → 🇷🇺 «Это расход, который нужно взвесить, вы правы. Давайте посчитаем просто: сколько для вас стоит один новый клиент? Если сайт приносит двух-трёх клиентов в месяц дополнительно, он окупается за несколько недель. А если хотите, можем начать с базового пакета и добавить остальное позже.»
 
 **4. «Мой племянник сделает бесплатно»**
 🇮🇹 «Me lo fa mio nipote gratis.»
 
-🇮🇹 «Ottimo, se ha tempo e voglia è una bella soluzione. L'unica cosa che le consiglio: verifichi che il dominio sia intestato a lei e che qualcuno si occupi degli aggiornamenti nel tempo. Se in futuro avrà bisogno, sono qui.»
+🇮🇹 «Ottimo, se ha tempo e voglia è una bella soluzione. L'unica cosa che le consiglio: verifichi che il dominio sia intestato a lei e che qualcuno si occupi degli aggiornamenti nel tempo. Se in futuro avrà bisogno, sono qui.»\
 → 🇷🇺 «Отлично, если у него есть время и желание — хорошее решение. Единственный совет: проверьте, чтобы домен был оформлен на вас и чтобы кто-то занимался обновлениями в будущем. Если понадобится помощь — я рядом.»
 
 **5. «Мне надо подумать»**
 🇮🇹 «Ci devo pensare.»
 
-🇮🇹 «Certo, è giusto. C'è qualcosa in particolare che la fa esitare, il prezzo, i tempi o altro? Così le preparo le informazioni giuste. Le scrivo giovedì per sentire cosa ha deciso, va bene?»
+🇮🇹 «Certo, è giusto. C'è qualcosa in particolare che la fa esitare, il prezzo, i tempi o altro? Così le preparo le informazioni giuste. Le scrivo giovedì per sentire cosa ha deciso, va bene?»\
 → 🇷🇺 «Конечно, это правильно. Есть что-то конкретное, что вас смущает — цена, сроки или что-то другое? Тогда я подготовлю нужную информацию. Я напишу вам в четверг, чтобы узнать ваше решение, хорошо?»
 
 **6. «Я уже обжёгся с другим веб-дизайнером»**
 🇮🇹 «Mi sono già trovato male con un altro web designer.»
 
-🇮🇹 «Mi dispiace, succede spesso. Per questo lavoro in modo trasparente: il dominio e gli account restano a nome suo, vede l'anteprima prima di ogni pubblicazione e nel contratto è scritto chiaramente cosa è incluso.»
+🇮🇹 «Mi dispiace, succede spesso. Per questo lavoro in modo trasparente: il dominio e gli account restano a nome suo, vede l'anteprima prima di ogni pubblicazione e nel contratto è scritto chiaramente cosa è incluso.»\
 → 🇷🇺 «Сожалею, такое случается часто. Поэтому я работаю прозрачно: домен и аккаунты остаются на ваше имя, вы видите предварительный просмотр перед каждой публикацией, а в договоре чётко написано, что включено.»
 
 ### 3.4. Предложение в трёх уровнях
@@ -910,20 +943,21 @@ document.getElementById("chiama").onclick = function () {
 
 **Как представить:**
 
-🇮🇹 «Le ho preparato tre proposte. La Base è perfetta per essere presenti online in modo professionale. La Premium è quella che scelgono quasi tutti i miei clienti, perché include il modulo di contatto e tre mesi di assistenza. La terza è per chi vuole che io mi occupi di tutto, anche dopo la pubblicazione.»
+🇮🇹 «Le ho preparato tre proposte. La Base è perfetta per essere presenti online in modo professionale. La Premium è quella che scelgono quasi tutti i miei clienti, perché include il modulo di contatto e tre mesi di assistenza. La terza è per chi vuole che io mi occupi di tutto, anche dopo la pubblicazione.»\
 → 🇷🇺 «Я подготовил для вас три предложения. “База” идеальна, чтобы профессионально присутствовать в интернете. “Премиум” выбирают почти все мои клиенты, потому что в него входит форма связи и три месяца обслуживания. Третий вариант — для тех, кто хочет, чтобы я занимался всем, в том числе после публикации.»
 
 ### 3.5. Договор, счёт, предоплата
 🇮🇹 *Contratto, fattura, acconto*
 
 **Порядок:**
+
 1. **Preventivo** (смета) подписан клиентом — это уже основа договора.
 2. **Contratto** (договор) или подписанные «Condizioni generali» (общие условия) — что входит, сроки, оплата, правки, права (см. раздел 4.4).
 3. **Acconto** (предоплата) — **30–50%** до начала работ. Без предоплаты не начинай.
 4. **Saldo** (окончательный расчёт) — **до** публикации на домене клиента (или в день публикации).
 5. **Fattura elettronica** — выставляется через SdI (сервисы: Fatture in Cloud, Aruba Fatturazione Elettronica или сайт Agenzia delle Entrate).
 
-🇮🇹 «Per iniziare chiedo un acconto del 40%. Il saldo si paga alla consegna, prima della pubblicazione sul dominio. Le invio la fattura elettronica per ogni pagamento.»
+🇮🇹 «Per iniziare chiedo un acconto del 40%. Il saldo si paga alla consegna, prima della pubblicazione sul dominio. Le invio la fattura elettronica per ogni pagamento.»\
 → 🇷🇺 «Чтобы начать, я прошу предоплату 40%. Остаток оплачивается при сдаче, до публикации на домене. На каждый платёж я отправляю вам электронный счёт.»
 
 ### 3.6. Переход от проекта к ретейнеру
@@ -932,16 +966,17 @@ document.getElementById("chiama").onclick = function () {
 **Главное правило:** предлагай ретейнер **с самого начала**, как часть предложения, а не неожиданно после сдачи. Тогда это не «навязывание», а логичное продолжение.
 
 **Когда предлагать:**
+
 1. В смете — как отдельная строка (или включённые 3 месяца в «Премиум»).
 2. При сдаче сайта — напоминание.
 3. За 2 недели до окончания включённых месяцев — с отчётом о результатах.
 
-🇮🇹 «Il sito è online e funziona. Da qui in avanti ha due possibilità: gestirlo in autonomia, e le lascio tutte le istruzioni, oppure lasciare che me ne occupi io con l'assistenza mensile: aggiornamenti, backup, piccole modifiche e un resoconto ogni mese. Non c'è nessun obbligo, sceglie lei.»
+🇮🇹 «Il sito è online e funziona. Da qui in avanti ha due possibilità: gestirlo in autonomia, e le lascio tutte le istruzioni, oppure lasciare che me ne occupi io con l'assistenza mensile: aggiornamenti, backup, piccole modifiche e un resoconto ogni mese. Non c'è nessun obbligo, sceglie lei.»\
 → 🇷🇺 «Сайт запущен и работает. Дальше у вас два варианта: управлять им самостоятельно — я оставлю все инструкции, — или доверить это мне через ежемесячное обслуживание: обновления, резервные копии, мелкие изменения и ежемесячный отчёт. Никаких обязательств, выбор за вами.»
 
 **После 3 включённых месяцев:**
 
-🇮🇹 «In questi tre mesi il sito ha portato 41 chiamate e 15 richieste dal modulo. L'assistenza inclusa scade il 30 aprile: se vuole continuare, il canone è di 90 euro al mese, disdicibile con un mese di preavviso.»
+🇮🇹 «In questi tre mesi il sito ha portato 41 chiamate e 15 richieste dal modulo. L'assistenza inclusa scade il 30 aprile: se vuole continuare, il canone è di 90 euro al mese, disdicibile con un mese di preavviso.»\
 → 🇷🇺 «За эти три месяца сайт принёс 41 звонок и 15 заявок через форму. Включённое обслуживание заканчивается 30 апреля: если хотите продолжить, абонентская плата — 90 евро в месяц, с возможностью отказа с уведомлением за месяц.»
 
 ---
@@ -965,11 +1000,12 @@ document.getElementById("chiama").onclick = function () {
 | Ответ в течение **2 рабочих дней** | Срочные работы в выходные (тариф ×1,5) |
 
 **Правила:**
+
 - Неиспользованные часы **не переносятся** на следующий месяц (🇮🇹 *le ore non utilizzate non sono cumulabili*).
 - Запросы — **в одном канале** (например, email или одна группа WhatsApp), не звонками в 22:00.
 - Доп. работы — по ставке **45–60 €/ч**, после письменного согласия клиента.
 
-🇮🇹 «Questa richiesta va oltre l'ora mensile inclusa nell'assistenza. La stimo in circa due ore, cioè 100 euro. Procedo?»
+🇮🇹 «Questa richiesta va oltre l'ora mensile inclusa nell'assistenza. La stimo in circa due ore, cioè 100 euro. Procedo?»\
 → 🇷🇺 «Этот запрос выходит за рамки часа в месяц, включённого в обслуживание. Я оцениваю его примерно в два часа, то есть 100 евро. Приступать?»
 
 ### 4.2. Как работать с дополнительными правками
@@ -978,19 +1014,21 @@ document.getElementById("chiama").onclick = function () {
 **В проекте:** включай **2 раунда правок** (🇮🇹 *2 giri di revisioni*). Раунд = клиент присылает **один список** изменений, ты вносишь все сразу.
 
 **Процесс:**
+
 1. Клиент получает preview-ссылку.
 2. Присылает все правки одним сообщением (не по одной в день!).
 3. Ты вносишь их → новая preview-ссылка.
 4. После 2-го раунда каждый следующий — платный (например, 60 € за раунд или почасово).
 
-🇮🇹 «Per lavorare in modo ordinato, le chiedo di raccogliere tutte le modifiche in un unico messaggio. Il preventivo include due giri di revisioni; quelli successivi li conteggio a parte.»
+🇮🇹 «Per lavorare in modo ordinato, le chiedo di raccogliere tutte le modifiche in un unico messaggio. Il preventivo include due giri di revisioni; quelli successivi li conteggio a parte.»\
 → 🇷🇺 «Чтобы работать организованно, прошу вас собрать все изменения в одно сообщение. Смета включает два раунда правок; последующие я считаю отдельно.»
 
 **Как отличить «правку» от «нового запроса»:**
+
 - Правка: «поменяй цвет кнопки», «исправь опечатку», «замени фото».
 - Новый запрос: «добавь страницу», «давай сделаем онлайн-бронирование», «а можно ещё английскую версию?».
 
-🇮🇹 «Ottima idea! Non era prevista nel preventivo iniziale, quindi le preparo un piccolo preventivo a parte, così decide con calma.»
+🇮🇹 «Ottima idea! Non era prevista nel preventivo iniziale, quindi le preparo un piccolo preventivo a parte, così decide con calma.»\
 → 🇷🇺 «Отличная идея! Её не было в первоначальной смете, поэтому я подготовлю небольшую отдельную смету, чтобы вы могли спокойно принять решение.»
 
 ### 4.3. Кто владеет доменом и аккаунтами — всегда клиент
@@ -1006,11 +1044,12 @@ document.getElementById("chiama").onclick = function () {
 | Email-сервисы, API-ключи | На аккаунт клиента, если это его расходы | — |
 
 **Почему так:**
+
 1. Доверие: клиент знает, что не «в заложниках».
 2. Безопасность: если с тобой что-то случится, бизнес клиента не остановится.
 3. Профессионализм: так работают серьёзные агентства.
 
-🇮🇹 «Tutto ciò che riguarda la sua attività, dominio, scheda Google e statistiche, resta intestato a lei. Io ho solo un accesso da collaboratore, che può revocare quando vuole.»
+🇮🇹 «Tutto ciò che riguarda la sua attività, dominio, scheda Google e statistiche, resta intestato a lei. Io ho solo un accesso da collaboratore, che può revocare quando vuole.»\
 → 🇷🇺 «Всё, что касается вашего бизнеса — домен, карточка Google и статистика, — остаётся оформленным на вас. У меня только доступ сотрудника, который вы можете отозвать в любой момент.»
 
 **Документ при сдаче (🇮🇹 *documento di consegna*):** список всех сервисов, где что находится, кто владелец, как восстановить доступ. Отдай клиенту в PDF.
@@ -1050,7 +1089,7 @@ document.getElementById("chiama").onclick = function () {
 - **Как работает:** посетитель заполняет форму → серверная функция на Vercel (🇮🇹 *funzione serverless*) отправляет сообщение в Telegram владельцу и копию на email (через сервис типа Resend) → посетитель получает автоматический ответ.
 - **Ценность для клиента:** заявки не теряются в почте, ответ в течение минут.
 - **Пример фразы:**
-  🇮🇹 «Ogni volta che qualcuno compila il modulo, le arriva subito un messaggio su Telegram con nome, telefono e richiesta. Così può richiamare in pochi minuti, prima della concorrenza.»
+  🇮🇹 «Ogni volta che qualcuno compila il modulo, le arriva subito un messaggio su Telegram con nome, telefono e richiesta. Così può richiamare in pochi minuti, prima della concorrenza.»\
   → 🇷🇺 «Каждый раз, когда кто-то заполняет форму, вам сразу приходит сообщение в Telegram с именем, телефоном и запросом. Так вы можете перезвонить за несколько минут — раньше конкурентов.»
 
 **Б. Автоматический ответ клиенту**
@@ -1096,7 +1135,7 @@ document.getElementById("chiama").onclick = function () {
 
 **Как считать цену:** не по часам, а по **ценности** (🇮🇹 *valore*). Если напоминания экономят парикмахерской 4 неявки в месяц по 35 € — это 140 €/мес. Абонентская плата 40 €/мес — очевидная выгода.
 
-🇮🇹 «Se i promemoria evitano anche solo quattro appuntamenti mancati al mese, lei recupera circa 140 euro. Il servizio costa 40 euro al mese: il conto è presto fatto.»
+🇮🇹 «Se i promemoria evitano anche solo quattro appuntamenti mancati al mese, lei recupera circa 140 euro. Il servizio costa 40 euro al mese: il conto è presto fatto.»\
 → 🇷🇺 «Если напоминания предотвращают хотя бы четыре неявки в месяц, вы возвращаете около 140 евро. Услуга стоит 40 евро в месяц — посчитать несложно.»
 
 ---
@@ -1261,6 +1300,7 @@ document.getElementById("chiama").onclick = function () {
 **Упражнение 10 — Полный цикл продажи (симуляция)**
 🇮🇹 *Simulazione di vendita completa*
 Выбери один бизнес из своего списка с Google Карт. Подготовь:
+
 1. сообщение первого контакта на итальянском;
 2. демо главной страницы (макс. 2 часа) на preview-ссылке Vercel;
 3. смету в трёх уровнях (База / Премиум / Премиум + Сервисы);
@@ -1274,12 +1314,13 @@ document.getElementById("chiama").onclick = function () {
 🇮🇹 *Pensiero finale*
 
 Тебе не нужно становиться программистом, чтобы строить хороший бизнес на сайтах. Тебе нужно:
+
 1. **понимать**, из чего состоит сайт и где может сломаться (часть 1);
 2. **точно формулировать** задачи для Claude Code — знание терминов делает промпты в разы лучше;
 3. **честно продавать** результат, а не технологию: звонки, заявки, сэкономленное время (часть 2);
 4. **строить регулярный доход** через ретейнеры и автоматизации, а не только разовые сайты.
 
-🇮🇹 «Non vendo siti web: aiuto le attività di Verona a farsi trovare e a ricevere più richieste.»
+🇮🇹 «Non vendo siti web: aiuto le attività di Verona a farsi trovare e a ricevere più richieste.»\
 → 🇷🇺 «Я не продаю сайты: я помогаю бизнесу Вероны быть найденным и получать больше заявок.»
 
 *Buon lavoro, Egor! — Удачи в работе, Егор!*

@@ -1,0 +1,10 @@
+@page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+body { font-size: 10.5pt; max-width: none; }
+h1 { page-break-before: always; }
+h1:first-of-type, header + h1 { page-break-before: avoid; }
+h2, h3 { page-break-after: avoid; }
+table, pre, blockquote { page-break-inside: avoid; }
+tr { page-break-inside: avoid; }
+nav#TOC { page-break-after: always; }
+nav#TOC ul { list-style: none; padding-left: 1em; }
+nav#TOC > ul { padding-left: 0; }
