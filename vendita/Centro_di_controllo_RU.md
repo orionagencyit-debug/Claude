@@ -23,6 +23,8 @@ lang: ru-RU
 |---|---|---|
 | 📞 **Скрипт продаж и чек-лист демо** (Google Doc) | Держать открытым во время звонка | [Открыть](https://docs.google.com/document/d/1-bkAOt44jxdKtWE8uJarKGci6FrjC-PGkUBbYoB5HJk/edit) |
 | 📞 Скрипт продаж (PDF, с флажками) | То же, для печати / телефона | [Открыть](https://drive.google.com/file/d/1Nm8fqKrxkXAze9b_EURxoJ-WFi0_pmdd/view) |
+| 🎯 **Гайд по продажам: 12 приёмов** (Google Doc) | Пауза, выбор без выбора, хвостики, Понимаю–Так же–Оказалось, сигналы, союзники, 4 ноги | [Открыть](https://docs.google.com/document/d/1Z91EPg09jI4m4WTM4vsiB9ZFEHZz5-K6EpLpPLFOIME/edit) |
+| 🎯 Гайд по продажам (PDF, со шпаргалкой) | Для печати / телефона | [Открыть](https://drive.google.com/file/d/1LIPw79vXCfLxL2VOpHi82UIPfL8tTtyp/view) |
 | 🗓 **План на 2 недели** (PDF) | Подробный чек-лист фаз 0–4, тексты объявлений, скрипт сеттера | [Открыть](https://drive.google.com/file/d/1uf8rDPPJ7gTrSZ-fFWhorbwivkWfU_5_/view) |
 | 🇮🇹 **Condizioni generali** (PDF) | Отправлять клиенту перед предоплатой | [Открыть](https://drive.google.com/file/d/1TxTVJ2FtijHQv5vmdMuvy2n05WV-XVCz/view) |
 | 🇮🇹 **Accordo setter** (PDF) | Подписать с каждым сеттером до старта | [Открыть](https://drive.google.com/file/d/1EhfsII1Ip_0V7z8G4ClZDQT8wjWXYYTz/view) |
