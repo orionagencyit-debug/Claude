@@ -111,8 +111,8 @@ def main(runs_file, out):
     wb = Workbook()
     ws = wb.active
     ws.title = "База"
-    cols = ["Название", "Телефон", "Статус", "Дата звонка", "Заметки", "Оплата €", "Город", "Провинция", "Ниша",
-            "Категория Google", "Отзывов", "Рейтинг", "Google Maps", "Блок", "Кто звонит"]
+    cols = ["Название", "Телефон", "Звонок", "Статус", "Дата звонка", "Заметки", "Оплата €", "Город", "Провинция", "Ниша",
+            "Категория Google", "Отзывов", "Рейтинг", "Google Maps", "Maps URL", "Блок", "Кто звонит"]
     dark = PatternFill("solid", fgColor="12355B")
     inp = PatternFill("solid", fgColor="FFF4C2")
     thin = Side(style="thin", color="B9C4D0")
@@ -122,16 +122,19 @@ def main(runs_file, out):
         c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
         c.border = Border(bottom=thin)
     for k, r in enumerate(rows, 2):
-        vals = [r["name"], r["phone"], "", None, "", None, r["city"], r["prov"], r["niche"], r["cat"],
-                r["reviews"], r["rating"], r["maps"], r["block"], r["owner"]]
+        call = (f'=IF(B{k}="","",HYPERLINK("https://orion-call-egor-s-projectss.vercel.app/?n="&IF(LEFT(SUBSTITUTE(B{k}," ",""),1)="+","","+39")'
+                f'&SUBSTITUTE(B{k}," ",""),"📞 "&B{k}))')
+        vals = [r["name"], r["phone"], call, "", None, "", None, r["city"], r["prov"], r["niche"], r["cat"],
+                r["reviews"], r["rating"], f'=IF(O{k}="","",HYPERLINK(O{k},"📍 Карта"))', r["maps"], r["block"], r["owner"]]
         for j, v in enumerate(vals, 1):
             ws.cell(row=k, column=j, value=v)
-        for j in (3, 4, 5, 6):
+        for j in (4, 5, 6, 7):
             ws.cell(row=k, column=j).fill = inp
-        ws.cell(row=k, column=4).number_format = "dd.mm"
-    for col, w in zip("ABCDEFGHIJKLMNO", [34, 15, 15, 11, 30, 10, 18, 11, 20, 24, 9, 8, 14, 7, 11]):
+        ws.cell(row=k, column=5).number_format = "dd.mm"
+    for col, w in zip("ABCDEFGHIJKLMNOPQ", [34, 15, 18, 15, 11, 30, 10, 18, 11, 20, 24, 9, 8, 12, 14, 7, 11]):
         ws.column_dimensions[col].width = w
-    ws.freeze_panes = "C2"
+    ws.column_dimensions["O"].hidden = True
+    ws.freeze_panes = "D2"
 
     sm = wb.create_sheet("Сводка")
     sm.append(["Провинция", "Найдено без сайта", "Из них мобильных", "В базе (после дублей)"])
