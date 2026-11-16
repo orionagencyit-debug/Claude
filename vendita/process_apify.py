@@ -7,7 +7,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
 NICHE_ORDER = ["imbianchino", "cartongesso", "ristrutturazioni", "ristrutturazione bagni", "muratore",
                "posa pavimenti", "cappotto termico", "impermeabilizzazioni"]
-FIELDS = "title,phone,phoneUnformatted,city,state,address,categoryName,totalScore,reviewsCount,url,placeId,searchString,permanentlyClosed,temporarilyClosed,website"
+FIELDS = "state,title,phone,phoneUnformatted,city,state,address,categoryName,totalScore,reviewsCount,url,placeId,searchString,permanentlyClosed,temporarilyClosed,website"
 BLOCK = 400
 OWNERS = ["Егор", "Егор", "Setter 1", "Setter 2", "Setter 3", "Setter 4"]  # блоки 1–6, дальше — резерв
 
@@ -36,6 +36,40 @@ def pretty(p):
     return f"{n[:3]} {n[3:6]} {n[6:]}".strip()
 
 
+SIGLE = {"BG": "Bergamo", "BS": "Brescia", "MN": "Mantova", "PD": "Padova", "TN": "Trento", "TV": "Treviso",
+         "VI": "Vicenza", "VE": "Venezia", "RO": "Rovigo", "VR": "Verona", "MI": "Milano", "CR": "Cremona",
+         "CO": "Como", "LC": "Lecco", "FE": "Ferrara", "BA": "Bari", "TO": "Torino", "PN": "Pordenone",
+         "VA": "Varese", "RA": "Ravenna", "MO": "Modena", "NO": "Novara", "SA": "Salerno", "CN": "Cuneo",
+         "BR": "Brindisi", "BT": "Barletta-Andria-Trani", "FG": "Foggia", "RC": "Reggio Calabria",
+         "VV": "Vibo Valentia", "NU": "Nuoro"}
+
+
+def clean_state(st):
+    st = (st or "").strip()
+    if st in SIGLE:
+        return SIGLE[st]
+    for pre in ("Provincia autonoma di ", "Provincia di ", "Provincia del ", "Città Metropolitana di ",
+                "Città metropolitana di ", "Libero consorzio comunale di "):
+        if st.startswith(pre):
+            return st[len(pre):]
+    return st
+
+
+CENTRO_SUD = {"Bari", "Foggia", "Brindisi", "Lecce", "Taranto", "Barletta-Andria-Trani", "Napoli", "Caserta",
+              "Salerno", "Avellino", "Potenza", "Matera", "Catania", "Messina", "Palermo", "Agrigento",
+              "Caltanissetta", "Enna", "Ragusa", "Trapani", "Reggio Calabria", "Vibo Valentia", "Catanzaro",
+              "Cagliari", "Sassari", "Nuoro", "Oristano", "Sulcis Iglesiente", "Medio Campidano", "Campobasso",
+              "Isernia", "Teramo", "Chieti", "Roma Capitale", "Viterbo", "Ancona", "Macerata", "Fermo",
+              "Ascoli Piceno", "Pesaro e Urbino", "Firenze", "Pisa", "Livorno", "Lucca", "Arezzo"}
+
+
+def niche_of(s):
+    for n in sorted(NICHE_ORDER, key=len, reverse=True):
+        if s.lower().startswith(n):
+            return n
+    return s
+
+
 def main(runs_file, out):
     rows, seen_phone, seen_place, stats = [], set(), set(), {}
     for line in open(runs_file):
@@ -44,7 +78,8 @@ def main(runs_file, out):
             continue
         prov, ds = parts[0], parts[2]
         items = fetch(ds)
-        st = stats.setdefault(prov, {"scraped": len(items), "mobile": 0, "kept": 0})
+        st = stats.setdefault(prov, {"scraped": 0, "mobile": 0, "kept": 0})
+        st["scraped"] += len(items)
         for it in items:
             if it.get("permanentlyClosed") or it.get("temporarilyClosed") or it.get("website"):
                 continue
@@ -61,12 +96,12 @@ def main(runs_file, out):
             st["kept"] += 1
             rows.append({
                 "name": it.get("title"), "phone": pretty(ph), "city": it.get("city") or "",
-                "prov": prov, "niche": it.get("searchString") or "", "cat": it.get("categoryName") or "",
+                "prov": clean_state(it.get("state")) or "—", "niche": niche_of(it.get("searchString") or ""), "cat": it.get("categoryName") or "",
                 "reviews": it.get("reviewsCount") or 0, "rating": it.get("totalScore") or 0,
                 "maps": it.get("url") or "",
             })
     # активность: больше отзывов и выше рейтинг → выше в списке
-    rows.sort(key=lambda r: (-min(r["reviews"], 60), -r["rating"],
+    rows.sort(key=lambda r: (r["prov"] in CENTRO_SUD, -min(r["reviews"], 60), -r["rating"],
                              NICHE_ORDER.index(r["niche"]) if r["niche"] in NICHE_ORDER else 99))
     for i, r in enumerate(rows):
         b = i // BLOCK + 1
@@ -76,7 +111,7 @@ def main(runs_file, out):
     wb = Workbook()
     ws = wb.active
     ws.title = "База"
-    cols = ["Название", "Телефон", "Статус", "Дата звонка", "Заметки", "Город", "Провинция", "Ниша",
+    cols = ["Название", "Телефон", "Статус", "Дата звонка", "Заметки", "Оплата €", "Город", "Провинция", "Ниша",
             "Категория Google", "Отзывов", "Рейтинг", "Google Maps", "Блок", "Кто звонит"]
     dark = PatternFill("solid", fgColor="12355B")
     inp = PatternFill("solid", fgColor="FFF4C2")
@@ -87,14 +122,14 @@ def main(runs_file, out):
         c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
         c.border = Border(bottom=thin)
     for k, r in enumerate(rows, 2):
-        vals = [r["name"], r["phone"], "", None, "", r["city"], r["prov"], r["niche"], r["cat"],
+        vals = [r["name"], r["phone"], "", None, "", None, r["city"], r["prov"], r["niche"], r["cat"],
                 r["reviews"], r["rating"], r["maps"], r["block"], r["owner"]]
         for j, v in enumerate(vals, 1):
             ws.cell(row=k, column=j, value=v)
-        for j in (3, 4, 5):
+        for j in (3, 4, 5, 6):
             ws.cell(row=k, column=j).fill = inp
         ws.cell(row=k, column=4).number_format = "dd.mm"
-    for col, w in zip("ABCDEFGHIJKLMN", [34, 15, 15, 11, 30, 18, 11, 20, 24, 9, 8, 14, 7, 11]):
+    for col, w in zip("ABCDEFGHIJKLMNO", [34, 15, 15, 11, 30, 10, 18, 11, 20, 24, 9, 8, 14, 7, 11]):
         ws.column_dimensions[col].width = w
     ws.freeze_panes = "C2"
 

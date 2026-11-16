@@ -28,7 +28,7 @@ def norm_status(s):
         return "inesistente"
     if s.startswith("non ris"):
         return "non risponde"
-    if s.startswith(("da chi", "da chiam")):
+    if s.startswith(("da chi", "da chiam", "da ric")):
         return "da chiamare"
     if s.startswith(("c'è sit", "ce sito", "c'e sit")):
         return "c'è sito"

@@ -26,6 +26,17 @@ def hdr(ws, row, cols):
         c.fill, c.font, c.alignment, c.border = DARK, WB, CENTER, BOX
 
 
+# Blocchi della base (colonna «Кто звонит» = Setter N) → fogli Setter N
+BASE = {}
+try:
+    from openpyxl import load_workbook
+    _ws = load_workbook("/home/user/Claude/vendita/Base_costruzioni.xlsx")["База"]
+    for _r in _ws.iter_rows(min_row=2, values_only=True):
+        if _r[14] and str(_r[14]).startswith("Setter"):
+            BASE.setdefault(_r[14], []).append([_r[0], _r[1], f"{_r[6] or '—'} ({_r[7]})", _r[8], _r[10], _r[11], _r[12]])
+except FileNotFoundError:
+    pass
+
 wb = Workbook()
 
 # ---------- Istruzioni ----------
@@ -99,6 +110,9 @@ for s in range(1, N_SETTERS + 1):
     for col, w in zip("ABCDEFGHIJK", [32, 15, 16, 20, 10, 10, 14, 16, 12, 34, 18]):
         ws.column_dimensions[col].width = w
     ws.freeze_panes = "C2"
+    for k, r in enumerate(BASE.get(f"Setter {s}", []), 2):
+        for j, v in enumerate(r, 1):
+            ws.cell(row=k, column=j, value=v)
     ws.conditional_formatting.add(f"A2:K{LEAD_ROWS+1}", FormulaRule(formula=['$H2="Demo fissata"'], fill=PatternFill("solid", fgColor="C8E6C9")))
     ws.conditional_formatting.add(f"A2:K{LEAD_ROWS+1}", FormulaRule(formula=['OR($H2="No",$H2="Inesistente",$H2="C\'è sito",$H2="Già in lavoro")'], fill=PatternFill("solid", fgColor="EEEEEE")))
 

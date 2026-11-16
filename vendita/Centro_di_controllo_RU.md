@@ -14,7 +14,8 @@ lang: ru-RU
 |---|---|---|
 | 📊 **Трекер обзвона** | План, факт, дашборд, графики, цели 6 000 / 10 000 € | [Открыть](https://docs.google.com/spreadsheets/d/1FOyPrYUmcri6YznHZEbz6EYV88kG8Io9vt9Xn9xI2NM/edit) |
 | 📇 **База лидов** «Lesds VR SITI» | Твоя текущая база (Foglio1, отсортирована: мобильные → стационарные → бьюти внизу) | [Открыть](https://docs.google.com/spreadsheets/d/11XN2bzsZ1K_N9l40uwOLXOnxfTomvYBfG_H-0O9_9mE/edit) |
-| 🧑‍💼 **Setter — tabella di lavoro** | Листы сеттеров, слоты демо, журнал демо, часы, автоматические выплаты | [Открыть](https://docs.google.com/spreadsheets/d/1EQjDwbDGlM6t6RUyzUUbO7Z2oPRvuR4glrR5ZMaQvhM/edit) |
+| 🏗 **База строителей** — 1 585 мобильных (Италия) | Новая база: блоки 1–2 твои, 3–4 — сеттерам. Статус + Дата звонка + Оплата € → импорт в трекер | [Открыть](https://docs.google.com/spreadsheets/d/1VEX0MEngeP-IcO8I9uOS-f6uQIelcUxVnXsl9vQYPew/edit) |
+| 🧑‍💼 **Setter — tabella di lavoro** | Листы сеттеров (Setter 1–2 уже с блоками 3–4 базы), слоты, демо, часы, выплаты | [Открыть](https://docs.google.com/spreadsheets/d/1mbZa6Ie9kNvDNiM4slkvpibovevfJl8NB2n-_DTnKSQ/edit) |
 | 🤝 **Рефералы и тёплые контакты** | План 15 мин/день, 10 шаблонов, учёт контактов, награды | [Открыть](https://docs.google.com/spreadsheets/d/160rRXIWaXBTLYKFLcuWCAiiHEJstUQWvhxklQ0-rMR4/edit) |
 
 ### Документы
@@ -69,7 +70,7 @@ lang: ru-RU
 | Продаж / получено | 1 / **100 €** |
 | Цели к 18.12 | **минимум 6 000 €**, максимум 10 000 € |
 | Свежие мобильные в старой базе | ~370 (строки 142–509, без бьюти) |
-| Новая база | **нужно собрать 2 500 мобильных** (≈ 5 000 компаний) |
+| Новая база | **1 585 мобильных** строителей (север Италии в начале), собрано за 31 $ |
 
 **Что показали первые дни:**
 
