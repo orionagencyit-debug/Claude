@@ -15,7 +15,7 @@ SNAP = Path(__file__).with_name("snapshots")
 DEAD = {"inesistente"}
 NO_ANSWER = {"non risponde"}
 CALLBACK = {"da chiamare"}
-TALK = {"no", "c'è sito", "gia in lavoro", "demo", "demo fatta", "attesa acconto", "pagato"}
+TALK = {"no", "c'è sito", "gia in lavoro", "bozza inviata", "demo", "demo fatta", "attesa acconto", "pagato"}
 DEMO_BOOKED = {"demo", "demo fatta", "attesa acconto", "pagato"}
 DEMO_DONE = {"demo fatta", "attesa acconto", "pagato"}
 PAID = {"pagato"}
@@ -36,6 +36,8 @@ def norm_status(s):
         return "gia in lavoro"
     if s in ("sold", "attesa", "attesa acconto"):
         return "attesa acconto"
+    if s.startswith("bozza"):
+        return "bozza inviata"
     if s.startswith("demo fat"):
         return "demo fatta"
     if s.startswith("demo"):
