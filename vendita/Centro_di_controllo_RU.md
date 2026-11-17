@@ -22,6 +22,7 @@ lang: ru-RU
 
 | Что | Для чего | Ссылка |
 |---|---|---|
+| ☎️ **Скрипт холодного звонка** (Google Doc) | Запись на демо с датой, «WhatsApp → только созвон», рекомендация после каждого «нет» | [Открыть](https://docs.google.com/document/d/1G4-M7gy4S-Ebv6TbiJlbethCBrVucRJ1RM_88CvSj-0/edit) · [PDF](https://drive.google.com/file/d/13zSQRFz8CnbZTOL36usxjok0ML7lRSzd/view) |
 | 📞 **Скрипт продаж и чек-лист демо** (Google Doc) | Держать открытым во время звонка | [Открыть](https://docs.google.com/document/d/1-bkAOt44jxdKtWE8uJarKGci6FrjC-PGkUBbYoB5HJk/edit) |
 | 📞 Скрипт продаж (PDF, с флажками) | То же, для печати / телефона | [Открыть](https://drive.google.com/file/d/1Nm8fqKrxkXAze9b_EURxoJ-WFi0_pmdd/view) |
 | 🎯 **Гайд по продажам: 12 приёмов** (Google Doc) | Пауза, выбор без выбора, хвостики, Понимаю–Так же–Оказалось, сигналы, союзники, 4 ноги | [Открыть](https://docs.google.com/document/d/1Z91EPg09jI4m4WTM4vsiB9ZFEHZz5-K6EpLpPLFOIME/edit) |
