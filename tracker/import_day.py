@@ -101,7 +101,7 @@ def main(path, day):
     rows, header = read_rows(Path(path))
     c_name = find_col(header, "назван", "nome") or header[0]
     c_phone = find_col(header, "телефон", "telefono")
-    c_status = find_col(header, "call", "статус", "stato")
+    c_status = find_col(header, "статус", "stato", "call")
     c_date = find_col(header, "дата звонка", "data chiamata", "дата")
     c_pay = find_col(header, "оплата", "pagamento", "€")
     if not (c_status and c_date):
