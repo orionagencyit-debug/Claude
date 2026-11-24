@@ -12,7 +12,7 @@ from pathlib import Path
 
 SNAP = Path(__file__).with_name("snapshots")
 
-DEAD = {"inesistente"}
+DEAD = {"inesistente", "chiuso"}  # chiuso = фирма закрыта
 NO_ANSWER = {"non risponde"}
 CALLBACK = {"da chiamare"}
 TALK = {"no", "c'è sito", "gia in lavoro", "bozza inviata", "demo", "demo fatta", "attesa acconto", "pagato"}
@@ -26,6 +26,8 @@ def norm_status(s):
     s = re.sub(r"\s+", " ", s)
     if s.startswith(("ineist", "inesist")):
         return "inesistente"
+    if s.startswith(("chius", "chiud")):
+        return "chiuso"
     if s.startswith("non ris"):
         return "non risponde"
     if s.startswith(("da chi", "da chiam", "da ric")):
