@@ -131,8 +131,8 @@ lang: ru-RU
 
 ### Шаг 6. Цена: три варианта
 
-🇮🇹 «Ci sono tre formule, [Nome]. La Base, 590 euro: il sito di una pagina come questo. La Premium, 990: fino a cinque pagine, modulo di contatto, scheda Google sistemata e tre mesi di assistenza — è quella che consiglio e che scelgono quasi tutti. E la Completa, con tutto incluso per un anno, 1.490.»\
-🇷🇺 «Есть три варианта, [Имя]. „База", 590 евро: одностраничный сайт, как этот. „Премиум", 990: до пяти страниц, форма связи, настроенная карточка Google и три месяца поддержки — его я советую и его выбирают почти все. И „Полный", всё включено на год, 1 490.»
+🇮🇹 «Ci sono tre formule, [Nome]. L'Essenziale, 700 euro: il sito di una pagina come questo. La Professionale, 990: fino a cinque pagine, modulo di contatto, scheda Google sistemata e tre mesi di assistenza — è quella che consiglio e che scelgono quasi tutti. E la Completa, con tutto incluso per un anno, 1.500.»\
+🇷🇺 «Есть три варианта, [Имя]. „Essenziale", 700 евро: одностраничный сайт, как этот. „Professionale", 990: до пяти страниц, форма связи, настроенная карточка Google и три месяца поддержки — его я советую и его выбирают почти все. И „Completo", всё включено на год, 1 500.»
 
 > **После цены — молчать.** Первый, кто заговорит после цены, проигрывает.
 
@@ -166,7 +166,7 @@ lang: ru-RU
 
 | Возражение | Ответ 🇮🇹 | 🇷🇺 |
 |---|---|---|
-| **«Costa troppo.»** | «Capisco, [Nome]. Rispetto a cosa le sembra caro? … Mi ha detto che un lavoro vale [3.000] euro: basta un cliente in più e il sito si è ripagato. A me è successo il primo mese. Possiamo anche partire dalla Base.» | «Понимаю, [Имя]. По сравнению с чем кажется дорого? … Вы сказали, заказ стоит [3 000]: одного клиента хватит, чтобы сайт окупился. У меня это случилось в первый месяц. Можем начать и с „Базы".» |
+| **«Costa troppo.»** | «Capisco, [Nome]. Rispetto a cosa le sembra caro? … Mi ha detto che un lavoro vale [3.000] euro: basta un cliente in più e il sito si è ripagato. A me è successo il primo mese. Possiamo anche partire dall'Essenziale.» | «Понимаю, [Имя]. По сравнению с чем кажется дорого? … Вы сказали, заказ стоит [3 000]: одного клиента хватит, чтобы сайт окупился. У меня это случилось в первый месяц. Можем начать и с „Essenziale".» |
 | **«Ci devo pensare.»** | «Certo, [Nome], è giusto. Mi dica sinceramente: cosa la fa esitare — il prezzo, i tempi o qualcos'altro?» → ответить на настоящую причину → «Con la garanzia non rischia nulla.» | «Конечно, [Имя], это правильно. Скажите честно: что смущает — цена, сроки или что-то ещё?» → ответ → «С гарантией вы ничем не рискуете.» |
 | **«Devo sentire mia moglie / il socio.»** | «Giustissimo. Cosa pensa che direbbe? … Facciamo cinque minuti tutti insieme domani alle 18, così vede anche lei/lui la bozza?» | «Совершенно правильно. Как думаете, что он(а) скажет? … Давайте пять минут все вместе завтра в 18, чтобы он(а) тоже увидел(а) черновик?» |
 | **«Mi mandi tutto su WhatsApp / per email.»** | «Volentieri, gliela mando. Ma il preventivo è semplice: sono le tre cifre che le ho detto. Cosa le servirebbe vedere scritto per decidere oggi?» | «С удовольствием пришлю. Но смета простая — три цифры, которые я назвал. Что вам нужно увидеть письменно, чтобы решить сегодня?» |

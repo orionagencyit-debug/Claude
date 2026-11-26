@@ -6,19 +6,23 @@ lang: it-IT
 
 ## 1. Cosa è incluso
 
-| | **Base** | **Premium** ⭐ | **Premium + Servizi** |
+| | **Essenziale** | **Professionale** ⭐ | **Completo** |
 |---|---|---|---|
-| Prezzo | 590 € | 990 € | 1.490 € |
-| Pagine | 1 (one-page) | fino a 5 | fino a 5 + sezione aggiornabile |
+| Prezzo (pagamento unico) | 700 € | 990 € | 1.500 € |
+| Pagine | 1 (one-page) | fino a 5 + galleria lavori | fino a 5 + sezione lavori aggiornata ogni mese |
 | Ottimizzato per telefono | ✓ | ✓ | ✓ |
 | Pulsanti Chiama / WhatsApp / Indicazioni | ✓ | ✓ | ✓ |
 | Testi scritti da noi, foto dalla scheda Google | ✓ | ✓ | ✓ |
 | SEO di base + Google Search Console | ✓ | ✓ | ✓ |
 | Privacy e cookie policy | ✓ | ✓ | ✓ |
+| Dominio e hosting per 12 mesi | ✓ | ✓ | ✓ |
 | Modulo di contatto con notifica | — | ✓ | ✓ |
-| Scheda Google Business | — | controllo | ottimizzazione completa |
+| Visibilità per l'intelligenza artificiale (dati strutturati + FAQ) | — | ✓ | ✓ |
+| QR code + kit recensioni | — | ✓ | ✓ |
+| Scheda Google Business | — | controllo e collegamento | ottimizzazione completa + 5 post |
 | Assistenza inclusa | — | 3 mesi | 12 mesi |
 | Versione in inglese | — | — | ✓ |
+| Giri di modifiche | 1 | 2 | illimitati prima della pubblicazione |
 
 Gli importi sono esenti IVA ai sensi del regime forfettario (art. 1, commi 54–89, L. 190/2014).
 

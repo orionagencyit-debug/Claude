@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Preventivo sito web</title>
+<style>
+  @page { size: A4; margin: 10mm 12mm; }
+  :root { --ink:#13263d; --mute:#5b6b7d; --line:#d9e1ea; --brand:#12355b; --accent:#e0a526; --soft:#f4f7fb; --ok:#1f8a4c; }
+  * { box-sizing: border-box; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.33; margin: 0; background:#fff; }
+  header { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:3px solid var(--brand); padding-bottom:8px; margin-bottom:12px; }
+  h1 { font-size: 22pt; margin:0; color: var(--brand); letter-spacing:-0.5px; }
+  .sub { color: var(--mute); font-size: 10pt; margin-top:2px; }
+  .meta { text-align:right; font-size:9.5pt; color:var(--mute); line-height:1.8; }
+  .meta b { color:var(--ink); }
+  .intro { background: var(--soft); border-left: 4px solid var(--accent); padding: 9px 12px; margin-bottom: 12px; font-size: 9.6pt; }
+  .plans { display:grid; grid-template-columns: 1fr 1.08fr 1fr; gap:10px; align-items:stretch; }
+  .plan { border:1px solid var(--line); border-radius:10px; padding:12px 12px 10px; display:flex; flex-direction:column; }
+  .plan.best { border:2px solid var(--brand); box-shadow: 0 2px 10px rgba(18,53,91,.15); position:relative; }
+  .badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:var(--accent); color:#1a1a1a; font-weight:bold; font-size:8.5pt; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+  .name { font-weight:bold; font-size:12.5pt; color:var(--brand); }
+  .for { color:var(--mute); font-size:8.8pt; min-height:26px; margin-top:2px; }
+  .price { font-size:21pt; font-weight:bold; margin:6px 0 2px; }
+  .price small { font-size:9pt; font-weight:normal; color:var(--mute); }
+  .once { font-size:8.5pt; color:var(--ok); font-weight:bold; margin-bottom:8px; }
+  ul { list-style:none; padding:0; margin:0; font-size:8.8pt; }
+  li { padding:2px 0 2px 16px; position:relative; border-top:1px dotted var(--line); }
+  li:first-child { border-top:none; }
+  li::before { content:"✓"; position:absolute; left:0; color:var(--ok); font-weight:bold; }
+  li.plus::before { content:"+"; color:var(--brand); }
+  li.bonus { color:#7a5200; }
+  li.bonus::before { content:"★"; color:var(--accent); }
+  .sec { font-size:8pt; text-transform:uppercase; letter-spacing:.6px; color:var(--mute); margin:8px 0 2px; font-weight:bold; }
+  .row { display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px; }
+  .box { border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:9.4pt; }
+  .box h3 { margin:0 0 5px; font-size:10.5pt; color:var(--brand); }
+  .box.case { background: var(--soft); }
+  .box p { margin:0 0 4px; }
+  .guarantee { margin-top:10px; border:2px dashed var(--ok); border-radius:10px; padding:9px 12px; font-size:9.8pt; }
+  .guarantee b { color:var(--ok); }
+  .sign { margin-top:14px; display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap:14px; font-size:9pt; color:var(--mute); }
+  .sign div { border-top:1px solid var(--ink); padding-top:3px; }
+  footer { margin-top:10px; font-size:8pt; color:var(--mute); text-align:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Preventivo sito web</h1>
+    <div class="sub">Egor · Siti web per artigiani e imprese · Verona</div>
+  </div>
+  <div class="meta">
+    Per: <b>______________________________</b><br>
+    Data: <b>____ / ____ / ________</b>
+  </div>
+</header>
+
+<div class="intro">
+  Un sito pronto in <b>5 giorni lavorativi</b>, fatto su misura per la vostra attività: testi scritti da noi, foto dei vostri lavori, e i clienti vi chiamano o vi scrivono su WhatsApp con un tocco. <b>Si paga una volta sola — il sito è vostro.</b>
+</div>
+
+<div class="plans">
+
+  <div class="plan">
+    <div class="name">Essenziale</div>
+    <div class="for">Per essere trovati su Google con un sito chiaro e semplice</div>
+    <div class="price">700 € <small></small></div>
+    <div class="once">Pagamento unico</div>
+    <ul>
+      <li>Sito di 1 pagina, perfetto da telefono</li>
+      <li>Pulsanti Chiama · WhatsApp · Indicazioni</li>
+      <li>Testi scritti da noi, foto dalla vostra scheda Google</li>
+      <li>Le vostre migliori recensioni Google sul sito</li>
+      <li>SEO di base + Google Search Console</li>
+      <li>Privacy e cookie policy</li>
+      <li>Dominio e hosting inclusi per 12 mesi</li>
+      <li>1 giro di modifiche</li>
+    </ul>
+  </div>
+
+  <div class="plan best">
+    <div class="badge">⭐ IL PIÙ SCELTO</div>
+    <div class="name">Professionale</div>
+    <div class="for">Per ricevere più richieste e farsi consigliare anche dall'intelligenza artificiale</div>
+    <div class="price">990 €</div>
+    <div class="once">Pagamento unico</div>
+    <ul>
+      <li class="plus"><b>Tutto l'Essenziale, più:</b></li>
+      <li>Fino a 5 pagine: servizi, lavori, chi siamo, contatti</li>
+      <li>Galleria «I nostri lavori» con le vostre foto</li>
+      <li>Modulo di contatto con notifica su telefono</li>
+      <li>Visibilità per l'intelligenza artificiale (ChatGPT, Google): dati strutturati + pagina domande frequenti</li>
+      <li>Scheda Google Business controllata e collegata al sito</li>
+      <li>3 mesi di assistenza inclusa</li>
+      <li>2 giri di modifiche</li>
+      <div class="sec">Bonus</div>
+      <li class="bonus">QR code per furgone, biglietti e preventivi</li>
+      <li class="bonus">Kit recensioni: link e QR per chiedere recensioni ai clienti</li>
+    </ul>
+  </div>
+
+  <div class="plan">
+    <div class="name">Completo</div>
+    <div class="for">Per chi vuole un sito sempre aggiornato, senza pensarci</div>
+    <div class="price">1.500 €</div>
+    <div class="once">Pagamento unico</div>
+    <ul>
+      <li class="plus"><b>Tutto il Professionale, più:</b></li>
+      <li>Scheda Google Business ottimizzata al completo + 5 post</li>
+      <li>Sezione lavori aggiornata da noi ogni mese</li>
+      <li>Versione in inglese</li>
+      <li>12 mesi di assistenza: modifiche, aggiornamenti, backup</li>
+      <li>Resoconto mensile delle visite</li>
+      <li>Modifiche illimitate prima della pubblicazione</li>
+      <div class="sec">Bonus</div>
+      <li class="bonus">QR code + kit recensioni</li>
+      <li class="bonus">Priorità: risposta entro 24 ore</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="box case">
+    <h3>Perché un sito oggi</h3>
+    <p>Sempre più persone non cercano solo su Google: chiedono all'intelligenza artificiale «chi mi rifà il bagno a Verona?». L'IA consiglia chi ha un sito con informazioni chiare.</p>
+    <p><b>Esempio reale:</b> il sito della nostra attività di fotografia immobiliare (Visual Estate) si è ripagato <b>già nel primo mese</b> — un cliente ci ha trovati chiedendo all'intelligenza artificiale.</p>
+  </div>
+  <div class="box">
+    <h3>Pagamento</h3>
+    <p><b>Acconto</b> alla conferma, per bloccare la data di lavoro.<br>
+    <b>Saldo</b> alla consegna, prima della pubblicazione.</p>
+    <p>Possibile anche in <b>2–3 rate</b>.</p>
+    <p>Bonifico istantaneo · PayPal · Satispay. Fattura per ogni pagamento.</p>
+    <p>Dominio e account restano <b>intestati a voi</b>. Nessun costo nascosto.</p>
+  </div>
+</div>
+
+<div class="guarantee">
+  <b>✓ Garanzia «soddisfatti o rimborsati»:</b> vedete il sito completo prima di pagare il saldo. Se la prima versione non vi piace, vi restituiamo l'acconto entro 7 giorni, senza discussioni.
+</div>
+
+<div class="sign">
+  <div>Pacchetto scelto</div>
+  <div>Firma cliente</div>
+  <div>Data</div>
+</div>
+
+<footer>Dal secondo anno: rinnovo di dominio e hosting a prezzo di costo · assistenza facoltativa da 50 €/mese, disdicibile in qualsiasi momento. Preventivo valido 15 giorni.</footer>
+
+</body>
+</html>
